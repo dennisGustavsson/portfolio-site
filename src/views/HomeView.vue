@@ -8,6 +8,7 @@ const updateParallax = () => {
   const shapeTwo = document.getElementById("shapeTwo");
   const portrait = document.getElementById("portrait");
   const helloSection = document.querySelector(".hello-section");
+  const webdevSection = document.querySelector(".webdev");
 
   // Adjust these factors to control the speed of the parallax effect
   helloSection.style.transform = `translateY(${scrollY * 1.4}px)`;
@@ -28,7 +29,7 @@ const updateParallax = () => {
     opacity = 1 - (scrollY - startFade) / (endFade - startFade);
     opacity = Math.max(opacity, 0); // Ensure opacity doesn't go below 0
   }
-
+  webdevSection.style.opacity = opacity;
   helloSection.style.opacity = opacity;
 };
 
@@ -51,9 +52,23 @@ onUnmounted(() => {
     />
     <div class="hello-section">
       <h2>Hi, I'm <span>Dennis!</span></h2>
+    </div>
+    <div class="webdev">
       <h4>a web developer</h4>
     </div>
     <img src="../assets/imgs/shapeTwo.svg" alt="colorful shape" id="shapeTwo" />
+
+    <section class="aboutSection">
+      <div class="container">
+        <h3>Webbutvecklarstudent</h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus
+          ullam, rem necessitatibus adipisci, excepturi deleniti molestiae
+          explicabo temporibus iusto natus totam, obcaecati iure delectus ut
+          corporis vel laboriosam autem suscipit.
+        </p>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -119,19 +134,30 @@ onUnmounted(() => {
         }
       }
     }
+  }
+  .webdev {
+    position: relative;
     h4 {
-      position: fixed;
+      position: absolute;
+      // position: fixed;
+      z-index: -2;
       color: white;
       font-weight: 600;
-      top: 350px;
-      left: -70px;
+      top: 730px;
+      left: 30px;
       @include md {
-        left: 200px;
+        left: 400px;
+        top: 900px;
       }
       @include xl {
+        top: 700px;
         left: auto;
-        right: 100px;
+        right: 150px;
         color: black;
+        font-size: 40px;
+      }
+      @include xxl {
+        color: white;
       }
     }
   }
@@ -157,7 +183,7 @@ onUnmounted(() => {
     top: 600px;
     left: -350px;
     width: 800px;
-    z-index: -2;
+    z-index: -3;
     @include md {
       width: 1100px;
       left: -100px;
@@ -171,6 +197,49 @@ onUnmounted(() => {
     @include xxxl {
       left: auto;
       right: -10%;
+    }
+  }
+
+  .aboutSection {
+    display: flex;
+    justify-content: center;
+    .container {
+      align-self: center;
+      max-width: 700px;
+      height: 500px;
+      background-color: rgba(233, 233, 233, 0);
+
+      border-radius: 30px;
+      backdrop-filter: blur(12px);
+      top: auto;
+      position: absolute;
+      bottom: 200px;
+      padding: 2rem;
+      margin-inline: 1rem;
+
+      @include md {
+        bottom: 350px;
+      }
+
+      @include lg {
+        top: auto;
+        position: absolute;
+        bottom: 700px;
+        padding: 2rem;
+      }
+      @include xl {
+        bottom: 500px;
+      }
+
+      h3 {
+        // color: rgb(185, 100, 206);
+        color: whitesmoke;
+        font-weight: 600;
+        text-shadow: 1px 1px 0px #000000;
+      }
+      p {
+        font-size: 14px;
+      }
     }
   }
 }
