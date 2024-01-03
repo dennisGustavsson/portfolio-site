@@ -2,7 +2,7 @@
   <nav>
     <div class="navbar">
       <RouterLink class="link" to="/">Home</RouterLink>
-      <RouterLink class="link" to="/about">About</RouterLink>
+      <!-- <RouterLink class="link" to="/about">About</RouterLink> -->
     </div>
   </nav>
 </template>
