@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted } from "vue";
 
 const updateParallax = () => {
+  // Get scroll position
   const scrollY = window.scrollY;
   const windowHeight = window.innerHeight;
   const shapeOne = document.getElementById("shapeOne");
@@ -9,6 +10,11 @@ const updateParallax = () => {
   const portrait = document.getElementById("portrait");
   const helloSection = document.querySelector(".hello-section");
   const webdevSection = document.querySelector(".webdev");
+  // Fade out effect
+  const startFade = windowHeight * 0.5; // Start fading at half the window height
+  const endFade = windowHeight; // Completely fade out at one window height
+  let opacity = 1;
+
 
   // Adjust these factors to control the speed of the parallax effect
   helloSection.style.transform = `translateY(${scrollY * 1.4}px)`;
@@ -19,11 +25,6 @@ const updateParallax = () => {
   } else {
     shapeTwo.style.transform = `translateY(${scrollY * -0.1}px)`;
   }
-
-  // Fade out effect
-  const startFade = windowHeight * 0.5; // Start fading at half the window height
-  const endFade = windowHeight; // Completely fade out at one window height
-  let opacity = 1;
 
   if (scrollY > startFade) {
     opacity = 1 - (scrollY - startFade) / (endFade - startFade);
@@ -64,10 +65,25 @@ onUnmounted(() => {
       <div class="container">
         <h3>Webbutvecklarstudent</h3>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus
-          ullam, rem necessitatibus adipisci, excepturi deleniti molestiae
-          explicabo temporibus iusto natus totam, obcaecati iure delectus ut
-          corporis vel laboriosam autem suscipit.
+          Jag är en ambitiös fullstack webbutvecklarstudent vid EC Utbildning i
+          Örebro, med examen våren 2024. Min specialisering ligger inom .NET,
+          där jag behärskar .NET Core, MVC, Entity Framework och Blazor. Jag har
+          även kompetens inom front-end utveckling med React och Vue, samt
+          erfarenhet av att arbeta med Git, Azure DevOps och agila metoder. Min
+          utbildning har gett mig en stark grund inom HTML, CSS, JavaScript, C#
+          och SQL.
+          <br />
+          <div class="about-links">
+            <div>
+              <a href="https://github.com/dennisGustavsson" target="_blank">GitHub </a>
+              <a href="https://www.linkedin.com/in/dennisgustavsson-hello" target="_blank">LinkedIn</a>
+            </div>
+            <a
+              href="https://ecutbildning.se/utbildningar/webbutvecklare-inom-net/#om-utbildningen"
+              target="_blank"
+              >Läs mer om min utbildning här.</a
+            >
+          </div>
         </p>
       </div>
     </section>
@@ -232,7 +248,10 @@ onUnmounted(() => {
       @include xl {
         bottom: 500px;
       }
-
+      .about-links {
+        display: flex;
+        justify-content: space-between;
+      }
       h3 {
         // color: rgb(185, 100, 206);
         color: whitesmoke;
@@ -240,6 +259,10 @@ onUnmounted(() => {
         text-shadow: 1px 1px 0px #000000;
       }
       p {
+        font-size: 14px;
+      }
+      a {
+        color: #1dcea1;
         font-size: 14px;
       }
     }
