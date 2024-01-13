@@ -34,6 +34,8 @@ const updateParallax = () => {
 };
 
 onMounted(() => {
+  //sets the initial position of the elements
+  updateParallax();
   window.addEventListener("scroll", updateParallax);
 });
 
