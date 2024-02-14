@@ -221,6 +221,9 @@ onUnmounted(() => {
   .aboutSection {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes sure the container takes up the full viewport height */
+
     .container {
       align-self: center;
       max-width: 700px;
@@ -231,12 +234,12 @@ onUnmounted(() => {
       backdrop-filter: blur(12px);
       top: auto;
       position: absolute;
-      bottom: 200px;
+      bottom: 10%;
       padding: 2rem;
       margin-inline: 1rem;
 
       @include md {
-        bottom: 350px;
+        bottom: 15%;
       }
 
       @include lg {
@@ -246,7 +249,7 @@ onUnmounted(() => {
         padding: 2rem;
       }
       @include xl {
-        bottom: 500px;
+        bottom: 15%;
       }
       .about-links {
         display: flex;
